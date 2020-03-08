@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Smart City</string>
+    <string name="smart_city">Smart City</string>
+    <string name="bemVindo">The Future in an App</string>
+    <string name="entrar">Log In</string>
+    <string name="notificacoes">Notifications</string>
+    <string name="mapa">Map</string>
+</resources>
