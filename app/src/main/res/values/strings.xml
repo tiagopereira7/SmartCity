@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">SmartCity</string>
-    <string name="smart_city">Smart City</string>
+    <string name="app_name">Cidade Inteligente</string>
+    <string name="smart_city">Cidade Inteligente</string>
     <string name="bemVindo">O Futuro numa aplicação</string>
     <string name="entrar">Entrar</string>
+    <string name="notificacoes">Notificações</string>
+    <string name="mapa">Mapa</string>
 </resources>

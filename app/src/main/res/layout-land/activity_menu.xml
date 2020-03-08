@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
-        android:text="Notificações"
+        android:text="@string/notificacoes"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/imageButton2"
         app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="60dp"
-        android:text="Mapa"
+        android:text="@string/mapa"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/imageButton"
         app:layout_constraintTop_toBottomOf="@+id/imageButton" />
