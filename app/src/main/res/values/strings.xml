@@ -5,4 +5,8 @@
     <string name="entrar">Entrar</string>
     <string name="notificacoes">Notificações</string>
     <string name="mapa">Mapa</string>
+    <string name="apagar_noti">Apagar Notificação</string>
+    <string name="atualizar_noti">Atualizar Notificação</string>
+    <string name="inserir_noti">Inserir Notificação</string>
+
 </resources>

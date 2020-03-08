@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class Menu extends AppCompatActivity {
+public class Inicial extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,8 +15,8 @@ public class Menu extends AppCompatActivity {
 
     }
 
-    //public void listview(View v){
-       // Intent i = new Intent(Menu.this, listviewFragment.class);
-        //startActivity(i);
-    //}
+    public void noti(View v){
+        Intent i = new Intent(Inicial.this, fragment_list.class);
+        startActivity(i);
+    }
 }

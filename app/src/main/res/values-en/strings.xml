@@ -5,4 +5,7 @@
     <string name="entrar">Log In</string>
     <string name="notificacoes">Notifications</string>
     <string name="mapa">Map</string>
+    <string name="atualizar_noti">Update Notification</string>
+    <string name="apagar_noti">Delete Notification</string>
+    <string name="inserir_noti">Insert Notificaton</string>
 </resources>

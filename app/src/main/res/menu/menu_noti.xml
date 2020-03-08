@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/inserir"
+        android:title="@string/inserir_noti"
+        android:icon="@mipmap/inserir"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/delete"
+        android:title="@string/apagar_noti" />
+
+    <item android:id="@+id/update"
+        android:title="@string/atualizar_noti" />
+</menu>

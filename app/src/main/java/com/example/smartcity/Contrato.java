@@ -2,6 +2,8 @@ package com.example.smartcity;
 
 import android.provider.BaseColumns;
 
+import java.util.Date;
+
 public class Contrato {
     private static final String TEXT_TYPE = " TEXT ";
     private static final String INT_TYPE = " INTEGER ";
