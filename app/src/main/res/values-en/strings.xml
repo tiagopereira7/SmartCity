@@ -8,4 +8,6 @@
     <string name="atualizar_noti">Update Notification</string>
     <string name="apagar_noti">Delete Notification</string>
     <string name="inserir_noti">Insert Notificaton</string>
+    <string name="adicionar">Add</string>
+
 </resources>

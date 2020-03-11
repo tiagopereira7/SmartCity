@@ -23,7 +23,7 @@ public class fragment_list extends Fragment {
 
     DB mDbHelper;
     SQLiteDatabase db;
-    Cursor c, c_pessoas;
+    Cursor c, c_notas;
     ListView lista;
     SimpleCursorAdapter adapter;
     View view;
@@ -54,8 +54,8 @@ public class fragment_list extends Fragment {
 
                 ContentValues cv = new ContentValues();
                 cv.put(Contrato.Notas.COLUMN_TITULO, "Buraco na estrada");
-                cv.put(Contrato.Notas.COLUMN_DATA, 20/01/20);
-                cv.put(Contrato.Notas.COLUMN_FOTO, 1);
+                cv.put(Contrato.Notas.COLUMN_DATA, "20/01/20");
+                cv.put(Contrato.Notas.COLUMN_LOCAL, "Braga");
                 db.insert(Contrato.Notas.TABLE_NAME, null,cv);
 
                 refresh();
@@ -68,7 +68,7 @@ public class fragment_list extends Fragment {
     private void preencheLista(){
         c = db.query(false,Contrato.Notas.TABLE_NAME, Contrato.Notas.PROJECTION, null, null, null, null, null, null);
 
-        adapter  = new SimpleCursorAdapter(getActivity(),android.R.layout.two_line_list_item,c,new String[] {Contrato.Notas.COLUMN_TITULO, Contrato.Notas.COLUMN_DATA, Contrato.Notas.COLUMN_FOTO }, new int[] {android.R.id.text1, android.R.id.text2},SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
+        adapter  = new SimpleCursorAdapter(getActivity(),android.R.layout.two_line_list_item,c,new String[] {Contrato.Notas.COLUMN_TITULO, Contrato.Notas.COLUMN_DATA, Contrato.Notas.COLUMN_LOCAL }, new int[] {android.R.id.text1, android.R.id.text2},SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
 
         lista.setAdapter(adapter);
     }
@@ -76,6 +76,7 @@ public class fragment_list extends Fragment {
 
 
     public void refresh(){
+
         adapter.swapCursor(c);
     }
 

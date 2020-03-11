@@ -7,21 +7,20 @@
     android:background="@color/colorPrimaryDark"
     tools:context=".Inicial">
 
-    <ImageButton
-        android:id="@+id/imageButton"
+    <Button
+        android:id="@+id/bt_map"
         android:layout_width="140dp"
         android:layout_height="145dp"
         android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="28dp"
         android:background="@mipmap/mapa"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
+        app:layout_constraintBottom_toBottomOf="@+id/bt_noti"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton2"
-        app:layout_constraintTop_toTopOf="@+id/imageButton2"
-         />
+        app:layout_constraintStart_toEndOf="@+id/bt_noti"
+        app:layout_constraintTop_toTopOf="@+id/bt_noti" />
 
-    <ImageButton
-        android:id="@+id/imageButton2"
+    <Button
+        android:id="@+id/bt_noti"
         android:layout_width="140dp"
         android:layout_height="145dp"
         android:layout_marginStart="30dp"
@@ -29,7 +28,7 @@
         android:layout_marginEnd="30dp"
         android:background="@mipmap/notific"
         android:onClick="noti"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintEnd_toStartOf="@+id/bt_map"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
          />
@@ -42,8 +41,8 @@
         android:layout_marginEnd="17dp"
         android:text="@string/notificacoes"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton2"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
+        app:layout_constraintEnd_toEndOf="@+id/bt_noti"
+        app:layout_constraintTop_toBottomOf="@+id/bt_noti" />
 
     <TextView
         android:id="@+id/txtMapa"
@@ -52,7 +51,7 @@
         android:layout_marginTop="14dp"
         android:text="@string/mapa"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton"
-        app:layout_constraintStart_toStartOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+        app:layout_constraintEnd_toEndOf="@+id/bt_map"
+        app:layout_constraintStart_toStartOf="@+id/bt_map"
+        app:layout_constraintTop_toBottomOf="@+id/bt_map" />
 </androidx.constraintlayout.widget.ConstraintLayout>
