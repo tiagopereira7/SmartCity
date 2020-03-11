@@ -27,11 +27,15 @@
         android:layout_below="@+id/tituloNotificacao">
 
         <EditText
+            android:id="@+id/editTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Titulo"></EditText>
+            android:hint="Titulo">
+
+        </EditText>
 
         <EditText
+            android:id="@+id/editData"
             android:hint="Data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,6 +44,7 @@
         </EditText>
 
         <EditText
+            android:id="@+id/editLocal"
             android:hint="Local"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -58,6 +63,7 @@
         <Button
             android:text="@string/adicionar"
             android:layout_width="0dp"
+            android:onClick="adicionar"
             android:layout_weight="1"
             android:layout_height="wrap_content">
 
