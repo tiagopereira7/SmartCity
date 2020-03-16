@@ -25,8 +25,8 @@ public class Contrato {
         public static final String[] PROJECTION = {Notas._ID, Notas.COLUMN_TITULO, Notas.COLUMN_DATA, Notas.COLUMN_LOCAL};
 
 
-        public static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + Notas.TABLE_NAME + "(" + Notas._ID + INT_TYPE + " PRIMARY KEY," + Notas.COLUMN_TITULO + TEXT_TYPE + "," +
-            Notas.COLUMN_DATA + INT_TYPE + "," + Notas.COLUMN_LOCAL + TEXT_TYPE + "," ;
+        public static final String SQL_CREATE_ENTRIES = "INSERT TABLE " + Notas.TABLE_NAME + "(" + Notas._ID + INT_TYPE + " PRIMARY KEY," + Notas.COLUMN_TITULO + TEXT_TYPE + "," +
+            Notas.COLUMN_DATA + TEXT_TYPE + "," + Notas.COLUMN_LOCAL + TEXT_TYPE + "," ;
 
         public static final String SQL_DROP_ENTRIES =
                 "DROP TABLE " + Notas.TABLE_NAME + ";";
