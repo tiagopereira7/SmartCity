@@ -41,6 +41,7 @@
         android:layout_marginEnd="17dp"
         android:text="@string/notificacoes"
         android:textSize="18sp"
+        android:onClick="mapa"
         app:layout_constraintEnd_toEndOf="@+id/bt_noti"
         app:layout_constraintTop_toBottomOf="@+id/bt_noti" />
 

@@ -20,7 +20,6 @@ public class notificacoes extends AppCompatActivity {
     Cursor c, c_notas;
     ListView lista;
     SimpleCursorAdapter adapter;
-    View view;
     private int start = 1;
 
     public notificacoes(){
@@ -33,15 +32,14 @@ public class notificacoes extends AppCompatActivity {
         setContentView(R.layout.activity_notificacoes);
 
         mDbHelper = new DB(this);
-//        db = mDbHelper.getReadableDatabase();
+        db = mDbHelper.getReadableDatabase();
         lista = (ListView) findViewById(R.id.lista);
-        //registerForContextMenu(lista);
-
-        fillLista();
+        registerForContextMenu(lista);
+        fillList();
     }
 
 
-    public void fillLista(){
+    public void fillList(){
         c = db.query(false,Contrato.Notas.TABLE_NAME, Contrato.Notas.PROJECTION,
                 null, null, null, null, null, null);
 
