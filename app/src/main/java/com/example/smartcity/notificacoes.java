@@ -43,6 +43,14 @@ public class notificacoes extends AppCompatActivity {
 
     }
 
+    public void insert(View view) {
+        ContentValues cv = new ContentValues();
+        cv.put(Contrato.Notas.COLUMN_TITULO, "Arvore na estrada");
+        cv.put(Contrato.Notas.COLUMN_LOCAL, "Lisboa");
+        db.insert(Contrato.Notas.TABLE_NAME, null, cv);
+
+        refresh();
+    }
     public void fillList(){
         c = db.query(false,Contrato.Notas.TABLE_NAME, Contrato.Notas.PROJECTION,
                 null, null, null, null, null, null);
@@ -111,12 +119,5 @@ public class notificacoes extends AppCompatActivity {
         refresh();
     }
 
-    public void insert(View view) {
-        ContentValues cv = new ContentValues();
-        cv.put(Contrato.Notas.COLUMN_TITULO, "Arvore na estrada");
-        cv.put(Contrato.Notas.COLUMN_LOCAL, "Lisboa");
-        db.insert(Contrato.Notas.TABLE_NAME, null, cv);
 
-        refresh();
-    }
 }
