@@ -7,9 +7,12 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
@@ -21,7 +24,7 @@ public class notificacoes extends AppCompatActivity {
     Cursor c, c_notas;
     ListView list;
     SimpleCursorAdapter adapter;
-
+    View view;
     public notificacoes(){
 
     }
@@ -37,6 +40,7 @@ public class notificacoes extends AppCompatActivity {
         //registerForContextMenu(lista);
 
         fillList();
+
     }
 
     public void fillList(){
@@ -71,15 +75,12 @@ public class notificacoes extends AppCompatActivity {
         startActivityForResult(i, start);
     }
 
-
     @Override
     public boolean onContextItemSelected(MenuItem item){
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         int itemPosition = info.position;
         c.moveToPosition(itemPosition);
         int id_Notas = c.getInt(c.getColumnIndex(Contrato.Notas._ID));
-
-
 
         switch (item.getItemId()){
             case R.id.delete:
@@ -110,4 +111,12 @@ public class notificacoes extends AppCompatActivity {
         refresh();
     }
 
+    public void insert(View view) {
+        ContentValues cv = new ContentValues();
+        cv.put(Contrato.Notas.COLUMN_TITULO, "Arvore na estrada");
+        cv.put(Contrato.Notas.COLUMN_LOCAL, "Lisboa");
+        db.insert(Contrato.Notas.TABLE_NAME, null, cv);
+
+        refresh();
+    }
 }
