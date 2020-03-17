@@ -14,6 +14,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="28dp"
         android:background="@mipmap/mapa"
+        android:onClick="mapa"
         app:layout_constraintBottom_toBottomOf="@+id/bt_noti"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/bt_noti"
