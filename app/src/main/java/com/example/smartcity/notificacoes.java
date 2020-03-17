@@ -37,7 +37,7 @@ public class notificacoes extends AppCompatActivity {
         mDbHelper = new DB(this);
         db = mDbHelper.getReadableDatabase();
         list = findViewById(R.id.lista);
-        //registerForContextMenu(lista);
+        registerForContextMenu(list);
 
         fillList();
 
@@ -81,6 +81,13 @@ public class notificacoes extends AppCompatActivity {
         Intent i = new Intent(notificacoes.this, inserirNotificacao.class);
         int start = 1;
         startActivityForResult(i, start);
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
+        super.onCreateContextMenu(menu,v,menuInfo);
+        MenuInflater inflater = this.getMenuInflater();
+        inflater.inflate(R.menu.menu_noti,menu);
     }
 
     @Override
