@@ -15,13 +15,12 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 public class notificacoes extends AppCompatActivity {
+
     DB mDbHelper;
     SQLiteDatabase db;
     Cursor c, c_notas;
-    ListView lista;
+    ListView list;
     SimpleCursorAdapter adapter;
-    View view;
-    private int start = 1;
 
     public notificacoes(){
 
@@ -33,15 +32,14 @@ public class notificacoes extends AppCompatActivity {
         setContentView(R.layout.activity_notificacoes);
 
         mDbHelper = new DB(this);
-//        db = mDbHelper.getReadableDatabase();
-        lista = (ListView) findViewById(R.id.lista);
+        db = mDbHelper.getReadableDatabase();
+        list = findViewById(R.id.lista);
         //registerForContextMenu(lista);
 
-        fillLista();
+        fillList();
     }
 
-
-    public void fillLista(){
+    public void fillList(){
         c = db.query(false,Contrato.Notas.TABLE_NAME, Contrato.Notas.PROJECTION,
                 null, null, null, null, null, null);
 
@@ -49,20 +47,30 @@ public class notificacoes extends AppCompatActivity {
                 {Contrato.Notas.COLUMN_TITULO, Contrato.Notas.COLUMN_LOCAL }, new int[] {android.R.id.text1, android.R.id.text2},
                 SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
 
-        lista.setAdapter(adapter);
+        list.setAdapter(adapter);
 
+    }
+
+    public void refresh(){
+        getCursor();
+        adapter.swapCursor(c);
+    }
+
+    private void getCursor(){
+        String sql = "select " + Contrato.Notas.TABLE_NAME + "." +
+                Contrato.Notas._ID + "," + Contrato.Notas.COLUMN_LOCAL + "," + Contrato.Notas.TABLE_NAME + "." + Contrato.Notas.COLUMN_TITULO  + " FROM " +
+                Contrato.Notas.TABLE_NAME ;
+
+        c = db.rawQuery(sql,null);
     }
 
 
     public void inserir(View view) {
         Intent i = new Intent(notificacoes.this, inserirNotificacao.class);
+        int start = 1;
         startActivityForResult(i, start);
     }
 
-    public void refresh(){
-
-        adapter.swapCursor(c);
-    }
 
     @Override
     public boolean onContextItemSelected(MenuItem item){
@@ -76,11 +84,11 @@ public class notificacoes extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.delete:
                 deleteFromBD(id_Notas);
-                Toast.makeText(this, "Removido com sucesso!!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Removido com sucesso!", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.update:
                 updateDB(id_Notas);
-                Toast.makeText(this, "Atualizado com sucesso!!!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Atualizado com sucesso!", Toast.LENGTH_SHORT).show();
 
                 return true;
             default:

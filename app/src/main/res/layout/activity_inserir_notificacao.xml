@@ -61,6 +61,7 @@
         android:layout_alignParentBottom="true">
 
         <Button
+            android:id="@+id/add"
             android:text="@string/adicionar"
             android:layout_width="0dp"
             android:onClick="adicionar"

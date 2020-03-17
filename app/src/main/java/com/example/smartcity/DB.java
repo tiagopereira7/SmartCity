@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DB extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 5;
-    public static final String DATABASE_NAME = "Notas.db";
+    public static final String DATABASE_NAME = "notas.db";
 
     public DB(Context context) { super(context, DATABASE_NAME, null, DATABASE_VERSION);}
 
@@ -15,10 +15,10 @@ public class DB extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-      // db.execSQL(Contrato.Notas.SQL_CREATE_ENTRIES);
+        db.execSQL(Contrato.Notas.SQL_CREATE_ENTRIES);
 
-        db.execSQL("insert into " + Contrato.Notas.TABLE_NAME + " values (1, 'Buraco na estrada', 20/01/20, Braga );");
-        db.execSQL("insert into " + Contrato.Notas.TABLE_NAME + " values (2, 'Tampa fora', 30/02/20 , Porto);");
+        db.execSQL("insert into " + Contrato.Notas.TABLE_NAME + " values (1, 'Buraco na estrada', 'Braga' );");
+        db.execSQL("insert into " + Contrato.Notas.TABLE_NAME + " values (2, 'Tampa Saneamento fora', 'Porto');");
 
 
     }
