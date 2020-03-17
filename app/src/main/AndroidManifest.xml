@@ -13,7 +13,8 @@
             android:value="@integer/google_play_services_version"/>
 
         <meta-data android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyC5fakGxn8KA78iUuIkOyJ3yeQRn4HlPVo"/>
+            android:value="AIzaSyChCzVeoo7yTTjxQ2JgapIPIgelqiepu8w"/>
+
         <uses-library android:name="org.apache.http.legacy" android:required="false" />
 
         <activity android:name=".Mapa"></activity>
