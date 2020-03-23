@@ -9,5 +9,9 @@
     <string name="atualizar_noti">Atualizar Notificação</string>
     <string name="inserir_noti">Inserir Notificação</string>
     <string name="adicionar">Adicionar</string>
+    <string name="inserir">Inserir</string>
+    <string name="titulo">Titulo</string>
+    <string name="data">Data</string>
+    <string name="cidade">Cidade</string>
 
 </resources>
