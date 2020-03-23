@@ -64,7 +64,6 @@
             android:id="@+id/add"
             android:text="@string/adicionar"
             android:layout_width="0dp"
-            android:onClick="adicionar"
             android:layout_weight="1"
             android:layout_height="wrap_content">
 

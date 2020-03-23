@@ -19,20 +19,11 @@
 
         <Button
             android:id="@+id/btnInserir"
-            android:layout_width="400dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="inserir"
             android:text="Inserir" />
 
-
-        <Button
-            android:id="@+id/insert"
-            android:layout_width="19dp"
-            android:layout_height="16dp"
-            android:onClick="insert"
-            android:paddingBottom="10dp">
-
-        </Button>
 
         <ListView
             android:id="@+id/lista"

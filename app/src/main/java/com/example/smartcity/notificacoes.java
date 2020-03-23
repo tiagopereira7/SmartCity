@@ -12,9 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 public class notificacoes extends AppCompatActivity {
@@ -23,7 +21,8 @@ public class notificacoes extends AppCompatActivity {
     SQLiteDatabase db;
     Cursor c, c_notas;
     ListView list;
-    SimpleCursorAdapter adapter;
+    //SimpleCursorAdapter adapter;
+    MyCursorAdapter madapter;
     View view;
     public notificacoes(){
 
@@ -43,35 +42,44 @@ public class notificacoes extends AppCompatActivity {
 
     }
 
-    public void insert(View view) {
+    /*public void inserir(View view) {
         ContentValues cv = new ContentValues();
-        cv.put(Contrato.Notas.COLUMN_TITULO, "Arvore na estrada");
-        cv.put(Contrato.Notas.COLUMN_LOCAL, "Lisboa");
+        cv.put(Contrato.Notas.COLUMN_TITLE, String.valueOf(findViewById(R.id.editTitulo)));
+        cv.put(Contrato.Notas.COLUMN_DATA, String.valueOf(findViewById(R.id.editData)));
+        cv.put(Contrato.Notas.COLUMN_ID_CIDADE, String.valueOf(findViewById(R.id.editLocal)));
         db.insert(Contrato.Notas.TABLE_NAME, null, cv);
 
         refresh();
-    }
+    }*/
+
     public void fillList(){
-        c = db.query(false,Contrato.Notas.TABLE_NAME, Contrato.Notas.PROJECTION,
-                null, null, null, null, null, null);
 
-        adapter  = new SimpleCursorAdapter(this,android.R.layout.two_line_list_item,c,new String[]
-                {Contrato.Notas.COLUMN_TITULO, Contrato.Notas.COLUMN_LOCAL }, new int[] {android.R.id.text1, android.R.id.text2},
-                SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
+        getCursor();
 
-        list.setAdapter(adapter);
+        //c = db.query(false,Contrato.Notas.TABLE_NAME, Contrato.Notas.PROJECTION, null, null, null, null, null, null);
+        /*adapter  = new SimpleCursorAdapter(this,android.R.layout.two_line_list_item,c,new String[]
+               {Contrato.Notas.COLUMN_TITULO, Contrato.Notas.COLUMN_LOCAL }, new int[] {android.R.id.text1, android.R.id.text2},
+                SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);*/
+
+        madapter = new MyCursorAdapter(notificacoes.this, c);
+        list.setAdapter(madapter);
 
     }
 
     public void refresh(){
         getCursor();
-        adapter.swapCursor(c);
+        madapter.swapCursor(c);
     }
 
     private void getCursor(){
         String sql = "select " + Contrato.Notas.TABLE_NAME + "." +
-                Contrato.Notas._ID + "," + Contrato.Notas.COLUMN_LOCAL + "," + Contrato.Notas.TABLE_NAME + "." + Contrato.Notas.COLUMN_TITULO  + " FROM " +
-                Contrato.Notas.TABLE_NAME ;
+                Contrato.Notas._ID + "," +
+                Contrato.Notas.COLUMN_TITLE + "," +
+                Contrato.Notas.COLUMN_DATA + "," +
+                Contrato.Cidade.COLUMN_NOME  + " FROM " +
+                Contrato.Notas.TABLE_NAME + "," + Contrato.Cidade.TABLE_NAME+
+                " WHERE " + Contrato.Notas.COLUMN_ID_CIDADE + "=" +
+                Contrato.Cidade.TABLE_NAME + "." + Contrato.Cidade._ID;
 
         c = db.rawQuery(sql,null);
     }
@@ -114,15 +122,14 @@ public class notificacoes extends AppCompatActivity {
 
     private void deleteFromBD(int id){
         db.delete(Contrato.Notas.TABLE_NAME, Contrato.Notas._ID + " = ?", new String[]{id+""});
-        adapter.notifyDataSetChanged();
         refresh();
     }
 
     private void updateDB(int id){
+        Intent i = new Intent(notificacoes.this, inserirNotificacao.class);
+        startActivity(i);
         ContentValues cv = new ContentValues();
-        cv.put(Contrato.Notas.COLUMN_LOCAL, "Braga");
         db.update(Contrato.Notas.TABLE_NAME, cv, Contrato.Notas._ID + " = ?", new String[]{id+""});
-        adapter.notifyDataSetChanged();
         refresh();
     }
 
