@@ -63,7 +63,7 @@ public class inserirNotificacao extends AppCompatActivity {
         cv.put(Contrato.Notas.COLUMN_DATA, String.valueOf(findViewById(R.id.editData)));
         cv.put(Contrato.Notas.COLUMN_ID_CIDADE, String.valueOf(findViewById(R.id.editCidade)));
         db.insert(Contrato.Notas.TABLE_NAME, null, cv);
-
+        //ola//
         //mDbHelper.add(editTitulo.getText().toString(), editLocal.getText().toString(), editData.getText().toString());
         Intent output = new Intent();
         setResult(RESULT_OK,output);
