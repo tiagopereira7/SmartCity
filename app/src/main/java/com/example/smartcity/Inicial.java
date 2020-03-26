@@ -34,7 +34,7 @@ public class Inicial extends AppCompatActivity {
     }
 
     public void mapa(View view) {
-        Intent i = new Intent(Inicial.this, Mapa.class);
+        Intent i = new Intent(Inicial.this, MapsActivity.class);
         startActivity(i);
     }
 }

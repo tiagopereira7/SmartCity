@@ -89,6 +89,7 @@ public class notificacoes extends AppCompatActivity {
         Intent i = new Intent(notificacoes.this, inserirNotificacao.class);
         int start = 1;
         startActivityForResult(i, start);
+
     }
 
     @Override
