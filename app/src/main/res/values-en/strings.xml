@@ -13,5 +13,7 @@
     <string name="titulo">Title</string>
     <string name="data">Date</string>
     <string name="cidade">City</string>
+    <string name="mapsfragment">MapsFragment</string>
+    <string name="login">Login</string>
 
 </resources>

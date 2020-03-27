@@ -8,9 +8,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+
 import static com.example.smartcity.R.*;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,4 +26,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+
+    }
 }

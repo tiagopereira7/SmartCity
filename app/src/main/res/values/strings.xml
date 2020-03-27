@@ -14,5 +14,6 @@
     <string name="data">Data</string>
     <string name="cidade">Cidade</string>
     <string name="mapsfragment">MapsFragment</string>
+    <string name="login">Login</string>
 
 </resources>
