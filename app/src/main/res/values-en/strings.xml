@@ -15,5 +15,12 @@
     <string name="cidade">City</string>
     <string name="mapsfragment">MapsFragment</string>
     <string name="login">Login</string>
+    <string name="adicionar_conta">Add Account</string>
+    <string name="confirmar_password">Confirm Password</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="nome">Name</string>
+    <string name="adicionar_registo">Add</string>
+    <string name="sem_conta">Do not have Account? Add now</string>
 
 </resources>
