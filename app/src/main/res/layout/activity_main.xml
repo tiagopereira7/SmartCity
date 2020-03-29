@@ -67,7 +67,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginRight="40dp"
             android:autofillHints=""
-            android:hint="Email" />
+            android:hint="User Name" />
 
         <EditText
             android:id="@+id/password"
@@ -84,7 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="180dp"
-            android:text="@string/n_o_tem_conta_registe_se_j" />
+            android:text="@string/sem_conta" />
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
