@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class notificacoes extends AppCompatActivity {
-
+    String titulo, data, local;
     DB mDbHelper;
     SQLiteDatabase db;
     Cursor c, c_notas;
@@ -113,8 +113,9 @@ public class notificacoes extends AppCompatActivity {
                 Toast.makeText(this, "Removido com sucesso!", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.update:
+                mDbHelper.UpdateNotas(id_Notas, titulo, data, local);
                 updateDB(id_Notas);
-                Toast.makeText(this, "Atualizado com sucesso!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Atualizado com sucesso!", Toast.LENGTH_SHORT).show();
 
                 return true;
             default:
@@ -129,6 +130,9 @@ public class notificacoes extends AppCompatActivity {
 
     private void updateDB(int id){
         Intent i = new Intent(notificacoes.this, Editar_notificacao.class);
+        i.putExtra("Titulo", titulo);
+        i.putExtra("Data", data);
+        i.putExtra("id_cidade", local);
         startActivity(i);
         refresh();
 

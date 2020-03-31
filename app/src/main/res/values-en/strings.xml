@@ -25,4 +25,10 @@
     <string name="registar">Register</string>
     <string name="logout">LogOut</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="pref_file">com.example.preference_file</string>
+    <string name="pref_login_status">com.example.preference_login_status</string>
+    <string name="pref_user_name">com.example.preference_user_name</string>
+    <string name="bem_vindo">Bem-vindo:</string>
+
 </resources>

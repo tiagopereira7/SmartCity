@@ -60,14 +60,14 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/username"
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="30dp"
             android:layout_marginRight="40dp"
             android:autofillHints=""
-            android:hint="User Name" />
+            android:hint="Email" />
 
         <EditText
             android:id="@+id/password"
@@ -77,6 +77,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="40dp"
             android:hint="Password"
+            android:password="true"
             android:autofillHints="" />
 
         <TextView
@@ -85,15 +86,24 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="180dp"
             android:text="@string/sem_conta" />
+
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="150dp"
             android:layout_marginTop="30dp"
-            android:onClick="Entrar"
             android:text="@string/entrar"
-            android:textAlignment="center" />
+            android:textAlignment="center"/>
+
+        <Button
+            android:id="@+id/ir"
+
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="40dp"
+            android:onClick="Entrar" />
+
 
     </LinearLayout>
 

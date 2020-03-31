@@ -1,7 +1,11 @@
 package com.example.smartcity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.widget.Toast;
 
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -11,18 +15,27 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import androidx.fragment.app.FragmentActivity;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,GoogleMap.OnMapLongClickListener{
 
     private GoogleMap mMap;
+    private GoogleApiClient mGoogleApiClient;
+    LocationRequest mLocationRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        mLocationRequest = new LocationRequest();
+    }
+
+
+    @SuppressLint("MissingSuperCall")
+    @Override
+    public void onStart() {
+        super.onStart();
     }
 
     @Override
@@ -32,5 +45,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng Portugal = new LatLng(40.546835,-7.958521 );
         mMap.addMarker(new MarkerOptions().position(Portugal).title("Marker in Portugal"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Portugal,  6));
+        mMap.setOnMapLongClickListener(this);
     }
+
+    @Override
+    public void onMapLongClick(LatLng latLng) {
+        Toast.makeText(this, "Lat:" + (latLng.latitude) +
+                "  Long:" + (latLng.longitude), Toast.LENGTH_SHORT).show();
+        mMap.addMarker(new MarkerOptions().position(latLng));
+    }
+
+
 }

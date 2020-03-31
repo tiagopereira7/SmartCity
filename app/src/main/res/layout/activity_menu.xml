@@ -7,6 +7,36 @@
     android:background="@color/colorPrimaryDark"
     tools:context=".Inicial">
 
+    <LinearLayout
+        android:id="@+id/linearLayoutbemvindo"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/txtbem_vindo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/bem_vindo"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/namelogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="name"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/bt_map"
         android:layout_width="140dp"
@@ -14,10 +44,8 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="276dp"
         android:layout_marginEnd="28dp"
-        android:layout_marginBottom="245dp"
         android:background="@mipmap/mapa"
         android:onClick="mapa"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/bt_noti"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,15 +64,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_logout"
         android:layout_width="110dp"
         android:layout_height="47dp"
         android:layout_marginBottom="17dp"
         android:text="@string/logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_map" />
+        app:layout_constraintTop_toBottomOf="@+id/bt_map"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/txtMapa"

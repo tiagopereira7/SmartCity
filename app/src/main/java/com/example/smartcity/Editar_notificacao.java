@@ -34,9 +34,18 @@ public class Editar_notificacao extends AppCompatActivity {
         getData = findViewById(R.id.editData);
         update = findViewById(R.id.update);
 
-        getTitulo.setText("arvore");
+        /*Intent intent = getIntent();
+        String extraname = intent.getStringExtra("Titulo");
+        String extradata = intent.getStringExtra("Data");
+        String extralocal = intent.getStringExtra("id_cidade");
+
+        getTitulo.setText(extraname);
+        getData.setText(extradata);
+        getLocal.setText(extralocal);*/
+
+        getTitulo.setText("Arvore na Estrada");
         getData.setText("01/01/2020");
-        getLocal.setText("Porto");
+        getLocal.setText("Braga");
 
         update.setOnClickListener(new View.OnClickListener() {
             @Override
