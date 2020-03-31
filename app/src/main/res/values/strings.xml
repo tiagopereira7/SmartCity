@@ -22,5 +22,7 @@
     <string name="nome">Nome</string>
     <string name="adicionar_registo">Adicionar</string>
     <string name="sem_conta">Não Tem Conta? Registe-se já</string>
+    <string name="registar">Registar</string>
+    <string name="logout">LogOut</string>
 
 </resources>

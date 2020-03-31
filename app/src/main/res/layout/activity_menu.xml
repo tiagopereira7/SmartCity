@@ -12,13 +12,15 @@
         android:layout_width="140dp"
         android:layout_height="145dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="276dp"
         android:layout_marginEnd="28dp"
+        android:layout_marginBottom="245dp"
         android:background="@mipmap/mapa"
         android:onClick="mapa"
-        app:layout_constraintBottom_toBottomOf="@+id/bt_noti"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/bt_noti"
-        app:layout_constraintTop_toTopOf="@+id/bt_noti" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/bt_noti"
@@ -31,19 +33,18 @@
         android:onClick="noti"
         app:layout_constraintEnd_toStartOf="@+id/bt_map"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-         />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txtNot"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="17dp"
-        android:text="@string/notificacoes"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/bt_noti"
-        app:layout_constraintTop_toBottomOf="@+id/bt_noti" />
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="110dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="17dp"
+        android:text="@string/logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_map" />
 
     <TextView
         android:id="@+id/txtMapa"
@@ -55,4 +56,15 @@
         app:layout_constraintEnd_toEndOf="@+id/bt_map"
         app:layout_constraintStart_toStartOf="@+id/bt_map"
         app:layout_constraintTop_toBottomOf="@+id/bt_map" />
+
+    <TextView
+        android:id="@+id/txtNot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="17dp"
+        android:text="@string/notificacoes"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/bt_noti"
+        app:layout_constraintTop_toBottomOf="@+id/bt_noti" />
 </androidx.constraintlayout.widget.ConstraintLayout>

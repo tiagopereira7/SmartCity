@@ -22,5 +22,7 @@
     <string name="nome">Name</string>
     <string name="adicionar_registo">Add</string>
     <string name="sem_conta">Do not have Account? Add now</string>
+    <string name="registar">Register</string>
+    <string name="logout">LogOut</string>
 
 </resources>
