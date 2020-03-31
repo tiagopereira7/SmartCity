@@ -2,12 +2,13 @@ package com.example.smartcity;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DB extends SQLiteOpenHelper {
 
-    public static final int DATABASE_VERSION = 5;
+    public static final int DATABASE_VERSION = 6;
     public static final String DATABASE_NAME = "Notificacoes.db";
 
 
@@ -40,11 +41,36 @@ public class DB extends SQLiteOpenHelper {
         onUpgrade(db, oldVersion, newVersion);
     }
     
-    public  void add(String name, String data, String local){
+    public  boolean addNotas(String titulo, String data, String local){
+        SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv= new ContentValues();
-        cv.put(Contrato.Notas.COLUMN_TITLE, name);
+        cv.put(Contrato.Notas.COLUMN_TITLE, titulo);
         cv.put(Contrato.Notas.COLUMN_DATA, data);
-        cv.put(Contrato.Notas.COLUMN_ID_CIDADE, local);
-                
+        cv.put(Contrato.Notas.COLUMN_ID_CIDADE, String.valueOf(local));
+
+        long result = getWritableDatabase().insert(Contrato.Notas.TABLE_NAME, null, cv);
+        return result != -1;
     }
+
+    public  boolean UpdateNotas( int id, String titulo, String data, String local){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv= new ContentValues();
+        cv.put(Contrato.Notas.COLUMN_TITLE, titulo);
+        cv.put(Contrato.Notas.COLUMN_DATA, data);
+        cv.put(Contrato.Notas.COLUMN_ID_CIDADE, String.valueOf(local));
+
+        long result = getWritableDatabase().update(Contrato.Notas.TABLE_NAME, cv, Contrato.Notas._ID + " = ?", new String[] {id +""});
+
+        return result != -1;
+    }
+
+
+    public Cursor viewData(){
+        SQLiteDatabase db =this.getReadableDatabase();
+        String query = "Select * from " + Contrato.Notas.TABLE_NAME;
+        Cursor cursor = db.rawQuery(query, null);
+        return cursor;
+    }
+
+
 }

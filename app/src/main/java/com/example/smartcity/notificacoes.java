@@ -1,8 +1,5 @@
 package com.example.smartcity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -12,18 +9,23 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class notificacoes extends AppCompatActivity {
 
     DB mDbHelper;
     SQLiteDatabase db;
     Cursor c, c_notas;
-    ListView list;
-    //SimpleCursorAdapter adapter;
+    ListView listNotas;
     MyCursorAdapter madapter;
-    View view;
+    ArrayAdapter adapter;
+    ArrayList<String> listItem;
     public notificacoes(){
 
     }
@@ -32,41 +34,41 @@ public class notificacoes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notificacoes);
-
         mDbHelper = new DB(this);
         db = mDbHelper.getReadableDatabase();
-        list = findViewById(R.id.lista);
-        registerForContextMenu(list);
+        listNotas = findViewById(R.id.listaNotas);
+        listItem = new ArrayList<>();
+        registerForContextMenu(listNotas);
 
         fillList();
 
     }
 
-    /*public void inserir(View view) {
-        ContentValues cv = new ContentValues();
-        cv.put(Contrato.Notas.COLUMN_TITLE, String.valueOf(findViewById(R.id.editTitulo)));
-        cv.put(Contrato.Notas.COLUMN_DATA, String.valueOf(findViewById(R.id.editData)));
-        cv.put(Contrato.Notas.COLUMN_ID_CIDADE, String.valueOf(findViewById(R.id.editLocal)));
-        db.insert(Contrato.Notas.TABLE_NAME, null, cv);
+    private void viewData() {
+        db = mDbHelper.getReadableDatabase();
+        Cursor cursor = mDbHelper.viewData();
+        if(cursor.getCount()==0){
+            Toast.makeText(this, "no Data", Toast.LENGTH_SHORT).show();
+        }else {
+            while (cursor.moveToNext()){
+                listItem.add(cursor.getString(1));
+            }
+            adapter = new ArrayAdapter<>(this, R.layout.layout_linha, listItem);
+            listNotas.setAdapter(madapter);
+        }
+    }
 
-        refresh();
-    }*/
 
     public void fillList(){
-
+        viewData();
         getCursor();
-
-        //c = db.query(false,Contrato.Notas.TABLE_NAME, Contrato.Notas.PROJECTION, null, null, null, null, null, null);
-        /*adapter  = new SimpleCursorAdapter(this,android.R.layout.two_line_list_item,c,new String[]
-               {Contrato.Notas.COLUMN_TITULO, Contrato.Notas.COLUMN_LOCAL }, new int[] {android.R.id.text1, android.R.id.text2},
-                SimpleCursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);*/
-
         madapter = new MyCursorAdapter(notificacoes.this, c);
-        list.setAdapter(madapter);
+        listNotas.setAdapter(madapter);
 
     }
 
     public void refresh(){
+        viewData();
         getCursor();
         madapter.swapCursor(c);
     }
@@ -89,7 +91,6 @@ public class notificacoes extends AppCompatActivity {
         Intent i = new Intent(notificacoes.this, inserirNotificacao.class);
         int start = 1;
         startActivityForResult(i, start);
-
     }
 
     @Override
@@ -127,11 +128,10 @@ public class notificacoes extends AppCompatActivity {
     }
 
     private void updateDB(int id){
-        Intent i = new Intent(notificacoes.this, inserirNotificacao.class);
+        Intent i = new Intent(notificacoes.this, Editar_notificacao.class);
         startActivity(i);
-        ContentValues cv = new ContentValues();
-        db.update(Contrato.Notas.TABLE_NAME, cv, Contrato.Notas._ID + " = ?", new String[]{id+""});
         refresh();
+
     }
 
 
