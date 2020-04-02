@@ -30,5 +30,7 @@
     <string name="pref_login_status">com.example.preference_login_status</string>
     <string name="pref_user_name">com.example.preference_user_name</string>
     <string name="bem_vindo">Bem-vindo:</string>
+    <string name="insert_email">Inserir Email</string>
+    <string name="insert_pass">Inserir Password</string>
 
 </resources>

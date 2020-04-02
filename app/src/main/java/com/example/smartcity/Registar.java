@@ -1,5 +1,6 @@
 package com.example.smartcity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -59,11 +60,13 @@ public class Registar extends AppCompatActivity {
                     public void onResponse(String response) {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
-                            String success = jsonObject.getString("success");
+                            String status = jsonObject.getString("status");
 
-                            if(success.equals("1")){
-                                Toast.makeText(Registar.this, "Register Success!", Toast.LENGTH_SHORT).show();
-                            }
+                            if(status.equals("true")) {
+                                    Toast.makeText(Registar.this, "Register Success!", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(Registar.this, MainActivity.class);
+                                    startActivity(intent);
+                                }
                         }catch (JSONException e){
                             e.printStackTrace();
                             Toast.makeText(Registar.this, "Register Error!" + e.toString(), Toast.LENGTH_SHORT).show();
@@ -77,6 +80,7 @@ public class Registar extends AppCompatActivity {
                     }
                 })
         {
+            @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
                 params.put("Nome", nomeRegisto);

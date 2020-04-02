@@ -18,7 +18,6 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,7 +31,7 @@ import static com.example.smartcity.R.layout;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
     private EditText editEmail, editPassword;
-    private TextView txtRegistar;
+    private TextView txtRegistar, EmailLogin;
     private Button btn_Login;
     private static String URL_LOGIN = "http://comovsmartcity.000webhostapp.com/myslim/index.php/api/utilizadores";
 
@@ -40,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layout.activity_main);
-
+        EmailLogin = findViewById(id.emaillogin);
         txtRegistar = findViewById(id.registar);
         editEmail = findViewById(id.email);
         editPassword = findViewById(id.password);
@@ -56,8 +55,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     Login(mEmail, mPass);
 
                 } else {
-                    editEmail.setError("Insert Email");
-                    editPassword.setError("Insert Password");
+                    editEmail.setError(getString(R.string.insert_email));
+                    editPassword.setError(getString(R.string.insert_pass));
 
                 }
             }
@@ -80,31 +79,24 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     public void onResponse(String response) {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
-                            String success = jsonObject.getString("success");
-                            JSONArray jsonArray = jsonObject.getJSONArray("login");
+                            String status = jsonObject.getString("status");
 
-                            if (success.equals("1")) {
-
-                                for (int i = 0; i < jsonArray.length(); i++){
-                                    JSONObject object = jsonArray.getJSONObject(i);
-
-                                    String name = object.getString("Nome").trim();
-                                    String email = object.getString("Email").trim();
+                            if (status.equals("true")) {
+                                    //String name = jsonObject.getString("Nome").trim();
+                                    //String email = jsonObject.getString("Email").trim();
 
                                     Intent intent = new Intent(MainActivity.this, Inicial.class);
-                                    intent.putExtra("Nome", name);
+                                    intent.putExtra("Email", email);
                                     startActivity(intent);
 
-                                    Toast.makeText(MainActivity.this,
-                                            "Success Login. \n Your Name: "
-                                            +name+ "\nYour Email: " +email, 
-                                            Toast.LENGTH_SHORT).show();
+                                    /*Toast.makeText(MainActivity.this,
+                                            "Success Login." + "\nYour Email: " + jsonObject.getString("Email"),
+                                            Toast.LENGTH_SHORT).show();*/
                                 }
-                            }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(MainActivity.this, "Error!" +e.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Error  " +e.toString(), Toast.LENGTH_SHORT).show();
                         }
 
                     }

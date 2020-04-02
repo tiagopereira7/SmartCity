@@ -7,6 +7,36 @@
     android:background="@color/colorPrimaryDark"
     tools:context=".Inicial">
 
+    <LinearLayout
+        android:id="@+id/linearLayoutbemvindo"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/txtbem_vindo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="@string/bem_vindo"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/emaillogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="Email"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="185dp"
@@ -55,4 +85,18 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/imageButton"
         app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="110dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="17dp"
+        android:text="@string/logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_map"
+        app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

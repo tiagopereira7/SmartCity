@@ -8,27 +8,6 @@
     tools:context=".MainActivity">
 
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:onClick="Entrar"
-        android:text="@string/entrar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image1" />
-
-    <ImageView
-        android:id="@+id/image1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/smart_city"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -37,13 +16,91 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:text="@string/bemVindo"
-        android:textSize="24sp"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="212dp"
+        android:layout_height="178dp"
+        android:background="@mipmap/smart_city"
+        android:contentDescription="TODO"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.587" />
+
+    <LinearLayout
+        android:id="@+id/linearLayoutlogin"
+        android:layout_width="429dp"
+        android:layout_height="328dp"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.89"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:layout_width="426dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/login"
+            android:textAlignment="center"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="415dp"
+            android:layout_height="53dp"
+            android:layout_marginLeft="20dp"
+            android:autofillHints=""
+            android:hint="Password"
+            android:password="true" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="415dp"
+            android:layout_height="53dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:autofillHints=""
+            android:hint="Email" />
+
+
+        <TextView
+            android:id="@+id/registar"
+            android:layout_width="194dp"
+            android:layout_height="18dp"
+            android:layout_marginLeft="250dp"
+            android:text="@string/sem_conta" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="119dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/entrar"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/ir"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:onClick="Entrar" />
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

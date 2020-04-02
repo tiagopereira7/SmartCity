@@ -28,11 +28,11 @@
             android:textSize="18sp"
             android:textStyle="bold" />
         <TextView
-            android:id="@+id/namelogin"
+            android:id="@+id/emaillogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="name"
+            android:text="Email"
             android:textSize="18sp" />
 
     </LinearLayout>
