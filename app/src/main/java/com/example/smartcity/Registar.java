@@ -23,9 +23,9 @@ import java.util.Map;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Registar extends AppCompatActivity {
-    private EditText editnomeRegisto, editEmailRegisto, editPasswordRegisto, editPasswordConfRegisto;
+    private EditText editnomeRegisto, editEmailRegisto, editPasswordRegisto;
     private Button btnRegistar;
-    private static String URL_REGIST = "https://192.168.1.65/myslim/index.php";
+    private static String URL_RESIST = "http://comovsmartcity.000webhostapp.com/myslim/index.php/api/utilizador";
 
 
     @Override
@@ -36,7 +36,7 @@ public class Registar extends AppCompatActivity {
         editnomeRegisto = findViewById(R.id.nomeRegisto);
         editEmailRegisto = findViewById(R.id.emailRegisto);
         editPasswordRegisto = findViewById(R.id.passwordRegisto);
-        editPasswordConfRegisto = findViewById(R.id.passwordConfRegisto);
+        //editPasswordConfRegisto = findViewById(R.id.passwordConfRegisto);
 
         btnRegistar = findViewById(R.id.btnAdicionar);
 
@@ -53,7 +53,7 @@ public class Registar extends AppCompatActivity {
         final String EmailRegisto = this.editEmailRegisto.getText().toString().trim();
         final String PasswordRegisto = this.editPasswordRegisto.getText().toString().trim();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_REGIST,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_RESIST,
                 new com.android.volley.Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

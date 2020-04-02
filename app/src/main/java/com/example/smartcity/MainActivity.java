@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private EditText editEmail, editPassword;
     private TextView txtRegistar;
     private Button btn_Login;
-    private static String URL_LOGIN = "https://192.168.1.65/myslim/index.php";
+    private static String URL_LOGIN = "http://comovsmartcity.000webhostapp.com/myslim/index.php/api/utilizadores";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     private void Login(final String email, final String password) {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_LOGIN,
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_LOGIN,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

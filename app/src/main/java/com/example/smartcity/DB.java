@@ -59,7 +59,7 @@ public class DB extends SQLiteOpenHelper {
         cv.put(Contrato.Notas.COLUMN_DATA, data);
         cv.put(Contrato.Notas.COLUMN_ID_CIDADE, String.valueOf(local));
 
-        long result = getWritableDatabase().update(Contrato.Notas.TABLE_NAME, cv, Contrato.Notas._ID + " = ?", new String[] {id +""});
+        long result = db.update(Contrato.Notas.TABLE_NAME, cv, Contrato.Notas._ID + " = ?", new String[] {id +""});
 
         return result != -1;
     }
