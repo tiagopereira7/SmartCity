@@ -82,17 +82,17 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                             String status = jsonObject.getString("status");
 
                             if (status.equals("true")) {
-                                    //String name = jsonObject.getString("Nome").trim();
-                                    //String email = jsonObject.getString("Email").trim();
+                                //String name = jsonObject.getString("Nome").trim();
+                                //String email = jsonObject.getString("Email").trim();
 
-                                    Intent intent = new Intent(MainActivity.this, Inicial.class);
-                                    intent.putExtra("Email", email);
-                                    startActivity(intent);
+                                Intent intent = new Intent(MainActivity.this, Inicial.class);
+                                intent.putExtra("Email", email);
+                                startActivity(intent);
 
                                     /*Toast.makeText(MainActivity.this,
                                             "Success Login." + "\nYour Email: " + jsonObject.getString("Email"),
                                             Toast.LENGTH_SHORT).show();*/
-                                }
+                            }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -122,19 +122,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
 
-    public void Entrar(View v){
-            //username = editEmail.getText().toString();
-            //password = editPassword.getText().toString();
-
-            Intent i = new Intent(MainActivity.this, Inicial.class);
-            startActivity(i);
-    }
-
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
     }
 
-    }
-
+}
