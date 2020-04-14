@@ -26,7 +26,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Registar extends AppCompatActivity {
     private EditText editnomeRegisto, editEmailRegisto, editPasswordRegisto;
     private Button btnRegistar;
-    private static String URL_REGIST = "http://comovsmartcity.000webhostapp.com/myslim/index.php/api/utilizador";
+    private static String URL_REGIST = "http://comovsmartcity.000webhostapp.com/myslim/index.php/api/new_utilizador";
 
 
     @Override

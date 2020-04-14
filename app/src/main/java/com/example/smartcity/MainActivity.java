@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 String mEmail = editEmail.getText().toString().trim();
                 String mPass = editPassword.getText().toString().trim();
 
-                if (!mEmail.isEmpty() || !mPass.isEmpty()) {
+                if (!mEmail.isEmpty() && !mPass.isEmpty()) {
                     Login(mEmail, mPass);
 
                 } else {
